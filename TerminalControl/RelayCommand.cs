@@ -18,16 +18,13 @@ namespace npcook.Terminal.Controls
 
 		public RelayCommand(Action<object> execute, Predicate<object> canExecute)
 		{
-			if (execute == null)
-				throw new ArgumentNullException(nameof(execute));
-
-			this.execute = execute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
 			this.canExecute = canExecute;
 		}
 
 		public bool CanExecute(object parameter)
 		{
-			return canExecute == null ? true : canExecute(parameter);
+			return canExecute == null || canExecute(parameter);
 		}
 
 		public event EventHandler CanExecuteChanged

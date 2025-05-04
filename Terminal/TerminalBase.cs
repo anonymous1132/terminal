@@ -234,7 +234,7 @@ namespace npcook.Terminal
 			ScreenChanged?.Invoke(this, EventArgs.Empty);
 		}
 
-		void advanceCursorRow()
+        private void advanceCursorRow()
 		{
 			cursorRow++;
 
